@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <GridLayout
+        android:id="@+id/gameBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="3">
+
+        <EditText
+            android:id="@+id/cell00"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:maxLength="10"
+            android:inputType="text"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
+        <EditText
+            android:id="@+id/cell01"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:maxLength="10"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/cell02"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:gravity="center"
+            android:maxLength="10"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/cell10"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:maxLength="10"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/cell11"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:maxLength="10"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/cell12"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:maxLength="10"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/cell20"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:maxLength="10"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/cell21"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:maxLength="10"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/cell22"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:autofillHints=""
+            tools:ignore="LabelFor"
+            android:gravity="center"
+            android:maxLength="10"
+            android:inputType="text" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/checkWinButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_win" />
+
+    <TextView
+        android:id="@+id/winnerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
