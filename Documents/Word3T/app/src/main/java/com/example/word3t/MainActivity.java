@@ -40,10 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void CheckWin() {
-         // check for if words are valid (length 1-4)
         // check after each word is done being typed
+        // check if each word exists in the dictionary
         // change win message and end game
-        // end game also if board is full
         // player 1 and 2 distinction
         String[][] board = new String[3][3];
         for (int i = 0; i < 3; i++) {
@@ -51,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 board[i][j]=starting_board[i][j].getText().toString();
             }
         }
+
         // check rows
         if (hasCommon(board[0][0], board[0][1], board[0][2])) {
             winnerMessage.setText("Winner: Row 1");
@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
         worda = worda.toLowerCase();
         wordb = wordb.toLowerCase();
         wordc = wordc.toLowerCase();
+        if (worda.length() > 4 || wordb.length() > 4 || wordc.length() > 4) {
+            throw new IllegalArgumentException("Atleast one of the words exceeds maximum length");
+        }
         for (char ca : worda.toCharArray()) {
             for (char cb : wordb.toCharArray()) {
                 for (char cc: wordc.toCharArray()) {
@@ -90,4 +93,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
 }
