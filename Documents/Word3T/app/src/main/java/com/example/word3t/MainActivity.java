@@ -1,11 +1,13 @@
 package com.example.word3t;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import androidx.core.text.TextUtilsCompat;
 import androidx.core.view.ViewCompat;
 
 import android.text.Editable;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
+import android.text.TextUtils;
 import android.os.Bundle;
 import androidx.core.view.WindowInsetsCompat;
 
@@ -22,17 +25,15 @@ public class MainActivity extends AppCompatActivity {
     private final EditText[][] starting_board = new EditText[3][3];
     private TextView winnerMessage;
     private Button restartButton;
+    private int current= 1; // 1 for player 1
+    private TextView playerTurn;
     private boolean over = false;
     private class TextWatcher implements android.text.TextWatcher {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-        }
+        public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
         @Override
         public void afterTextChanged(Editable s) {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         starting_board[0][0] = findViewById(R.id.cell00);
         starting_board[0][1] = findViewById(R.id.cell01);
         starting_board[0][2] = findViewById(R.id.cell02);
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 starting_board[i][j].addTextChangedListener(new TextWatcher());
             }
         }
+
         winnerMessage = findViewById(R.id.winnerTextView);
         restartButton = findViewById(R.id.restartButton);
         restartButton.setOnClickListener(v -> restartGame());
@@ -71,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void CheckWin() {
         // check if each word exists in the dictionary
-        // change win message and end game
-        // end game when board full
         // player 1 and 2 distinction
         String[][] board = new String[3][3];
         for (int i = 0; i < 3; i++) {
